@@ -14,6 +14,7 @@ body, h1{
     background-color: midnightblue;
     padding: 10px 50px;
 }
+
 nav {
     border-bottom: solid 1px cornflowerblue;
 }
@@ -65,13 +66,13 @@ main, .container-fluid{
 }
 
 section {
-    max-width: 70%;
+    max-width: 100%;
     margin: 0 auto;
-    padding:50px 0;
+    padding: 30px 15%;
 }
 
 h1 {
-    text-align: center;
+    text-align:center;
     font-weight: 400;
     margin-bottom:50px
 }
@@ -89,15 +90,22 @@ h1 .white {
     color:white;
 }
 
+
+.btn-blue:hover{
+    color: midnightblue;
+    background: none;
+    border:solid 1px midnightblue;
+}
+
 .btn-white {
     background-color: white;
     color: midnightblue;
-    margin-right:20px;
 }
 
-.listArticles, .form-article, .form-contact{
-    max-width: 70%;
-    margin: 0 auto;
+.btn-white:hover {
+    color: white;
+    background: none;
+    border: solid 1px white;
 }
 
 

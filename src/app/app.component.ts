@@ -22,7 +22,10 @@ export class AppComponent {
         this.editArticle = new Article(0, '');
         this.title = 'My First Angular Blog';
         this.articles = new Array();
-        this.articles.push(new Article(99, 'Le monde merveilleux de oui-oui', 'Quisque blandit luctus quam, ut tincidunt lorem pretium eu. Nam enim massa, mollis vitae lacus ut, accumsan sodales lectus. Nullam eu elit quis magna imperdiet consequat in id eros. Duis at tellus non elit fermentum volutpat.'));
+        this.articles.push(new Article(99, 'Le monde merveilleux de oui-oui', 'Quisque blandit luctus quam,' +
+            ' ut tincidunt lorem pretium eu. Nam enim massa, mollis vitae lacus ut, ' +
+            'accumsan sodales lectus. Nullam eu elit quis magna imperdiet consequat in id eros. ' +
+            'Duis at tellus non elit fermentum volutpat.'));
     }
 
     backToList() {
@@ -49,9 +52,13 @@ export class AppComponent {
     }
 
     saveArticle(myForm: NgForm) {
-        console.info(myForm);
         this.articles.push(JSON.parse(JSON.stringify(this.editArticle)));
         myForm.resetForm();
+    }
+
+    modifyArticle(index: number) {
+        this.editArticle = this.articles[index];
+        this.addArticle();
     }
 }
 
