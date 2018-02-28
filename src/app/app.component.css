@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+.bg-blue {
+    background-color: midnightblue;
+    padding: 10px 50px;
+}
+
+.navbar-brand {
+    height:80px;
+    width:80px;
+    padding:0 0;
+}
+
+.navbar ul li a {
+    font-family: 'Quicksand', cursive;
+    color:white;
+}
+
+.navbar ul li a:after{
+    content:" | ";
+    display: block;
+    height:100%;
+    width:100%;
+}
+
+.navbar-brand a {
+    background-image: url("../assets/images/Logo_TV_2015.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size:cover;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    height: 100%;
+    display: block;
+}
+
+.navbar-brand a:before{
+    content:" ";
+    display: block;
+    height:100%;
+    width:0;
+}
+
+.nav-item {
+    width: 150%;
+}
+
+.container {
+    margin-top:50px;
+}
+
