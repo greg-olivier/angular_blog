@@ -1,8 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
+
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+body, h1{
+    font-family: 'Quicksand', cursive;
+    margin:0;
+}
+
 .bg-blue {
     background-color: midnightblue;
     padding: 10px 50px;
+}
+nav {
+    border-bottom: solid 1px cornflowerblue;
 }
 
 .navbar-brand {
@@ -12,16 +25,17 @@
 }
 
 .navbar ul li a {
-    font-family: 'Quicksand', cursive;
     color:white;
 }
 
-.navbar ul li a:after{
-    content:" | ";
-    display: block;
-    height:100%;
-    width:100%;
+.navbar ul li:nth-last-of-type(2) a:after, .navbar ul li:nth-last-of-type(3) a:after {
+    content:"|";
+    display: inline-block;
+    padding-left: 15px;
+    color:white;
 }
+
+
 
 .navbar-brand a {
     background-image: url("../assets/images/Logo_TV_2015.png");
@@ -42,11 +56,56 @@
     width:0;
 }
 
-.nav-item {
-    width: 150%;
+main{
+    padding:0;
 }
 
-.container {
-    margin-top:50px;
+main, .container-fluid{
+    max-width:100%;
 }
 
+section {
+    max-width: 70%;
+    margin: 0 auto;
+    padding:50px 0;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom:50px
+}
+
+h1 .blue {
+    color:midnightblue;
+}
+
+h1 .white {
+    color:white;
+}
+
+.btn-blue {
+    background-color: midnightblue;
+    color:white;
+}
+
+.btn-white {
+    background-color: white;
+    color: midnightblue;
+    margin-right:20px;
+}
+
+.listArticles, .form-article, .form-contact{
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+
+.section-blue {
+    background-color: midnightblue;
+    color:white;
+}
+
+.article {
+    margin: 50px auto;
+}

@@ -4,66 +4,84 @@
         <a href="#">My First Angular Blog</a>
     </div>
 
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ALL ARTICLES</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">NEW ARTICLE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CONTACT</a>
-                </li>
-            </ul>
-        </div>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" (click)="showAll()" href="#">ALL ARTICLES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="addArticle()" href="#">NEW ARTICLE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="showContact()" href="#">CONTACT</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-<div class="container">
-    <div id="listArticles">
-        <div>
-
+<main class="container-fluid">
+    <section class="container-fluid listArticles" *ngIf="showall">
+        <h1 class="blue">ALL ARTICLES</h1>
+        <button class="btn btn-blue" (click)="addArticle()">Add article</button>
+        <div class="article card" *ngFor="let article of articles">
+            <h2 class="card-header">{{article?.title}}</h2>
+            <div class="card-body">
+                <p class="card-text">{{ article?.description }}</p>
+            </div>
         </div>
-    </div>
+    </section>
 
+    <section class="container-fluid section-blue" *ngIf="editing">
+        <div class="form-article">
+            <h1 class="white">NEW ARTICLE</h1>
+            <form id="article-form" method="post" action="article.php" role="form" (ngSubmit)="saveArticle(myForm)"
+                  #myForm="ngForm">
+                <div class="form-group">
+                    <label for="article_title">Title*</label>
+                    <input type="text" class="form-control" id="article_title" name="article_title"
+                           [(ngModel)]="editArticle.title"
+                           placeholder="Enter the title" data-error="Please, don't let me empty" required>
+                </div>
 
-    <div class="form-article container">
-        <form>
-            <div class="form-group">
-                <label for="article_title">Titre de l'article*</label>
-                <input type="text" class="form-control" id="article_title"
-                       placeholder="Entrez ici le titre*" data-error="Merci de renseigner un titre" required>
+                <div class="form-group">
+                    <label for="article_author">Author</label>
+                    <input type="text" class="form-control" id="article_author" name="article_author"
+                           [(ngModel)]="editArticle.author" placeholder="Enter the author">
+                </div>
+
+                <div class="form-group">
+                    <label for="article_description">Content</label>
+                    <textarea class="form-control" rows="5" id="article_description" name="article_description"
+                              [(ngModel)]="editArticle.description" placeholder="Enter the content here..."></textarea>
+                </div>
+                <div class="form-row">
+                    <input type="submit" class="btn btn-white" (click)="backToList()" value="Publish and return to list">
+                    <input type="submit" class="btn btn-white" value="Add and continue editing">
+                </div>
+                <p>* The fields are required</p>
+            </form>
+        </div>
+    </section>
+
+    <section class="container-fluid form-contact" *ngIf="contact">
+        <h1 class="blue">CONTACT</h1>
+        <form id="contact-form" method="post" action="contact.php" role="form">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstname">Firstname*</label>
+                    <input type="text" class="form-control" id="firstname"
+                           placeholder="Enter your firstname" data-error="Please, don't let me empty" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastname">Lastname*</label>
+                    <input type="text" class="form-control" id="lastname"
+                           placeholder="Enter your lastname" data-error="Please, don't let me empty" required>
+                </div>
             </div>
 
             <div class="form-group">
-                <label for="article_author">Auteur</label>
-                <input type="text" class="form-control" id="article_author" placeholder="Entrez ici l'auteur">
-            </div>
-
-            <div class="form-group">
-                <label for="article_description">Contenu</label>
-                <textarea class="form-control" rows="5" id="article_description"
-                          placeholder="Entrez ici le contenu"></textarea>
-            </div>
-
-            <button class="btn btn-dark">Enregitrer</button>
-        </form>
-    </div>
-
-    <div class="form-contact container">
-        <form>
-            <div class="form-group">
-                <label for="firstname">Prénom*</label>
-                <input type="text" class="form-control" id="firstname"
-                       placeholder="Prénom*" data-error="Merci de renseigner votre prénom" required>
-                <label for="lastname">Nom*</label>
-                <input type="text" class="form-control" id="lastname"
-                       placeholder="Nom*" data-error="Merci de renseigner votre nom" required>
-            </div>
-
-            <div class="form-group">
-                <label for="article_author">Email*</label>
-                <input type="email" class="form-control" id="email" placeholder="Email"
-                       data-error="Merci de renseigner votre email" required>
+                <label for="email">Email*</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                       data-error="Please, don't let me empty" required>
             </div>
 
             <div class="form-group">
@@ -72,8 +90,9 @@
                           data-error="Merci d'écrire un message" required></textarea>
             </div>
 
-            <button class="btn btn-dark">Envoyer</button>
+            <button class="btn btn-blue">Send</button>
+            <p>* The fields are required</p>
         </form>
-    </div>
-</div>
+    </section>
+</main>
 
