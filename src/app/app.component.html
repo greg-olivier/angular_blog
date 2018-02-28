@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-blue">
 
     <div class="navbar-brand">
-        <a href="#">My First Angular Blog</a>
+        <a (click)="showAll()" href="#">My First Angular Blog</a>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -21,77 +21,103 @@
 <main class="container-fluid">
     <section class="container-fluid listArticles" *ngIf="showall">
         <h1 class="blue">ALL ARTICLES</h1>
-        <button class="btn btn-blue" (click)="addArticle()">Add article</button>
-        <div class="article card" *ngFor="let article of articles">
-            <h2 class="card-header">{{article?.title}}</h2>
+        <button class="btn btn-blue btn-blue" (click)="addArticle()">Add article</button>
+        <article class="article card" *ngFor="let article of articles; let i = index">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <h2 class="d-inline-flex">{{article?.title}}</h2>
+                    </div>
+                    <div class="col-lg-2 text-right">
+                        <button class="btn btn-blue ">Edit</button>
+                    </div>
+                </div>
+
+            </div>
             <div class="card-body">
                 <p class="card-text">{{ article?.description }}</p>
             </div>
-        </div>
+        </article>
     </section>
 
     <section class="container-fluid section-blue" *ngIf="editing">
-        <div class="form-article">
-            <h1 class="white">NEW ARTICLE</h1>
-            <form id="article-form" method="post" action="article.php" role="form" (ngSubmit)="saveArticle(myForm)"
-                  #myForm="ngForm">
-                <div class="form-group">
+        <h1 class="white">NEW ARTICLE</h1>
+        <form id="article-form" method="post" action="article.php" role="form" (ngSubmit)="saveArticle(myForm)"
+              #myForm="ngForm">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
                     <label for="article_title">Title*</label>
                     <input type="text" class="form-control" id="article_title" name="article_title"
                            [(ngModel)]="editArticle.title"
                            placeholder="Enter the title" data-error="Please, don't let me empty" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="article_author">Author</label>
                     <input type="text" class="form-control" id="article_author" name="article_author"
                            [(ngModel)]="editArticle.author" placeholder="Enter the author">
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="article_description">Content</label>
+                <textarea class="form-control" rows="10" id="article_description" name="article_description"
+                          [(ngModel)]="editArticle.description"
+                          placeholder="Enter the content here..."></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="article_description">Content</label>
-                    <textarea class="form-control" rows="5" id="article_description" name="article_description"
-                              [(ngModel)]="editArticle.description" placeholder="Enter the content here..."></textarea>
-                </div>
-                <div class="form-row">
-                    <input type="submit" class="btn btn-white" (click)="backToList()" value="Publish and return to list">
+            <div class="form-row text-right">
+                <div class="form-group col-md-12">
+                    <p class="text-muted" style="display: inline-block; margin-right: 2%">* The fields are required</p>
+                    <input type="submit" class="btn btn-white" (click)="backToList()"
+                           value="Publish and return to list">
                     <input type="submit" class="btn btn-white" value="Add and continue editing">
                 </div>
-                <p>* The fields are required</p>
-            </form>
-        </div>
+            </div>
+        </form>
     </section>
 
     <section class="container-fluid form-contact" *ngIf="contact">
         <h1 class="blue">CONTACT</h1>
         <form id="contact-form" method="post" action="contact.php" role="form">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="firstname">Firstname*</label>
-                    <input type="text" class="form-control" id="firstname"
-                           placeholder="Enter your firstname" data-error="Please, don't let me empty" required>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="firstname">Firstname*</label>
+                            <input type="text" class="form-control" id="firstname"
+                                   placeholder="Enter your firstname" data-error="Please, don't let me empty" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="lastname">Lastname*</label>
+                            <input type="text" class="form-control" id="lastname"
+                                   placeholder="Enter your lastname" data-error="Please, don't let me empty" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="email">Email*</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                   data-error="Please, don't let me empty" required>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="lastname">Lastname*</label>
-                    <input type="text" class="form-control" id="lastname"
-                           placeholder="Enter your lastname" data-error="Please, don't let me empty" required>
+
+
+                <div class="form-group col-lg-6">
+                    <label for="message">Message*</label>
+                    <textarea class="form-control" rows="7" id="message" placeholder="Message"
+                              data-error="Merci d'écrire un message" required></textarea>
+                </div>
+            </div>
+            <div class="row text-right">
+                <div class="form-group col-md-12">
+                    <p class="text-muted" style="display: inline-block; margin-right: 2%">* The fields are required</p>
+                    <input type="submit" class="btn btn-blue" value="Send">
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email*</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email"
-                       data-error="Please, don't let me empty" required>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Message*</label>
-                <textarea class="form-control" rows="5" id="message" placeholder="Message"
-                          data-error="Merci d'écrire un message" required></textarea>
-            </div>
-
-            <button class="btn btn-blue">Send</button>
-            <p>* The fields are required</p>
         </form>
     </section>
 </main>
