@@ -1,18 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 
-*,*::before,*::after{
-    box-sizing: border-box;
-}
-
-body, h1{
-    font-family: 'Quicksand', cursive;
-    margin:0;
-}
-
-.bg-blue {
+.nav-blue {
     background-color: midnightblue;
-    padding: 10px 50px;
 }
 
 nav {
@@ -22,11 +11,15 @@ nav {
 .navbar-brand {
     height:80px;
     width:80px;
-    padding:0 0;
+
 }
 
 .navbar ul li a {
     color:white;
+}
+
+.navbar ul li a:hover {
+    color:royalblue;
 }
 
 .navbar ul li:nth-last-of-type(2) a:after, .navbar ul li:nth-last-of-type(3) a:after {
@@ -34,6 +27,7 @@ nav {
     display: inline-block;
     padding-left: 15px;
     color:white;
+
 }
 
 
@@ -57,18 +51,17 @@ nav {
     width:0;
 }
 
-main{
-    padding:0;
-}
 
 main, .container-fluid{
     max-width:100%;
+    height: auto;
 }
 
 section {
     max-width: 100%;
+    height: auto;
     margin: 0 auto;
-    padding: 30px 15%;
+    padding: 50px 15%;
 }
 
 h1 {
@@ -97,15 +90,21 @@ h1 .white {
     border:solid 1px midnightblue;
 }
 
-.btn-white {
-    background-color: white;
+
+
+.btn-white, .btn-fa {
+    background-color: none;
     color: midnightblue;
 }
 
 .btn-white:hover {
+    background-color:midnightblue;
     color: white;
-    background: none;
     border: solid 1px white;
+}
+
+.btn-fa:hover {
+    color: royalblue;
 }
 
 
@@ -117,3 +116,4 @@ h1 .white {
 .article {
     margin: 50px auto;
 }
+

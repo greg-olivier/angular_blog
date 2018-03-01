@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-blue">
+<nav class="navbar navbar-expand-lg navbar-light nav-blue py-3 px-5">
 
-    <div class="navbar-brand">
+    <div class="navbar-brand p-0">
         <a (click)="showAll()" href="#">My First Angular Blog</a>
     </div>
 
@@ -13,24 +13,36 @@
                 <a class="nav-link" (click)="addArticle()" href="#">NEW ARTICLE</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="showContact()" href="#">CONTACT</a>
+                <a class="nav-link" (click)="displayContact()" href="#">CONTACT</a>
             </li>
         </ul>
     </div>
 </nav>
-<main class="container-fluid">
+<main class="container-fluid p-0">
     <section class="container-fluid listArticles" *ngIf="showall">
-        <h1 class="blue">ALL ARTICLES</h1>
-        <button class="btn btn-blue btn-blue" (click)="addArticle()">Add article</button>
-        <article class="article card" *ngFor="let article of articles; let i = index">
+        <div class="row">
+                    <div class="col-sm-4 offset-sm-4">
+            <h1 class="blue">ALL ARTICLES</h1>
+        </div>
+            <div class="col-sm-1 offset-sm-3">
+                <a (click)="addArticle()">
+                    <i class="fa fa-plus-circle fa-3x btn-fa" aria-hidden="true"> </i></a>
+            </div>
+                </div>
+
+
+        <article class="article card" *ngFor="let article of articles; index as i">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <h2 class="d-inline-flex">{{article?.title}}</h2>
                     </div>
-                    <div class="col-lg-2 text-right">
-                        <button class="btn btn-blue ">Edit</button>
+                    <div class="col-lg-3 text-right">
+                        <a (click)="updateArticle(article.id, i)"><i class="fa fa-edit fa-2x btn-fa" aria-hidden="true"> </i></a>
+                        <a (click)="deleteArticle(article.id, i)"><i class="fa fa-trash fa-2x btn-fa ml-2" aria-hidden="true"> </i></a>
+
                     </div>
+
                 </div>
 
             </div>
@@ -76,30 +88,33 @@
         </form>
     </section>
 
-    <section class="container-fluid form-contact" *ngIf="contact">
+    <section class="container-fluid form-contact" *ngIf="showContact">
         <h1 class="blue">CONTACT</h1>
-        <form id="contact-form" method="post" action="contact.php" role="form">
+        <form id="contact-form" method="post" action="contact.php" role="form"
+              (ngSubmit)="sendContact(myForm2)" #myForm2="ngForm">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="firstname">Firstname*</label>
-                            <input type="text" class="form-control" id="firstname"
-                                   placeholder="Enter your firstname" data-error="Please, don't let me empty" required>
+                            <input type="text" class="form-control" id="firstname" name="firstname"
+                                   placeholder="Enter your firstname" data-error="Please, don't let me empty" required
+                                   [(ngModel)]="contact.firstname">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="lastname">Lastname*</label>
-                            <input type="text" class="form-control" id="lastname"
-                                   placeholder="Enter your lastname" data-error="Please, don't let me empty" required>
+                            <input type="text" class="form-control" id="lastname" name="lastname"
+                                   placeholder="Enter your lastname" data-error="Please, don't let me empty" required
+                                   [(ngModel)]="contact.lastname">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="email">Email*</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email"
-                                   data-error="Please, don't let me empty" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
+                                   data-error="Please, don't let me empty" required [(ngModel)]="contact.email">
                         </div>
                     </div>
                 </div>
@@ -107,8 +122,8 @@
 
                 <div class="form-group col-lg-6">
                     <label for="message">Message*</label>
-                    <textarea class="form-control" rows="7" id="message" placeholder="Message"
-                              data-error="Merci d'écrire un message" required></textarea>
+                    <textarea class="form-control" rows="7" id="message" name="message" placeholder="Message"
+                              data-error="Merci d'écrire un message" required [(ngModel)]="contact.message"></textarea>
                 </div>
             </div>
             <div class="row text-right">
