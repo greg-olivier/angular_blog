@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+html {
+    max-height: 100%;
+}
+
+body, h1{
+    font-family: 'Quicksand', cursive;
+    margin:0;
+}
