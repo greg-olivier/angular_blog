@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "lib": {
+    "entryFile": "public_api.ts",
+    "umdModuleIds": {
+      "rxjs": "Rx"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "core-js",
+    "rxjs",
+    "zone.js"
+  ]
+}

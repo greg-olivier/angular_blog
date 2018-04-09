@@ -1,23 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light nav-blue py-3 px-5">
+<header>
+    <blog-navbar title="Blog V2" (onNavigate)="nav($event)"></blog-navbar>
+</header>
 
-    <div class="navbar-brand p-0">
-        <a (click)="showAll()" href="#">My First Angular Blog</a>
-    </div>
 
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" (click)="showAll()" href="#">ALL ARTICLES</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="addArticle()" href="#">NEW ARTICLE</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="displayContact()" href="#">CONTACT</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <main class="container-fluid p-0">
     <section class="container-fluid listArticles" *ngIf="showall">
         <div class="row">
