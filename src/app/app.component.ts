@@ -1,10 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule, NgForm} from '@angular/forms';
-import {Article} from './article';
-import {ArticleService} from './article.service';
+import {Article} from './blog-lib/article';
+import {ArticleService} from './blog-lib/article.service';
 import {Contact} from './contact';
+import {
+    NAV_LIST,
+    NAV_CREATE,
+    NAV_CONTACT,
+    NAV_HOME
+} from './blog-lib/navbar/navbar.component';
 
-declare var $: any;
+
 
 @Component({
     selector: 'app-root',
@@ -97,6 +103,18 @@ export class AppComponent implements OnInit {
 
     deleteArticle(id: number, index: number) {
         this.articles.splice(index, 1);
+    }
+
+    nav(path: string) {
+        if (path === NAV_HOME || path === NAV_LIST) {
+            this.backToList();
+        } else if (path === NAV_CREATE) {
+            this.addArticle();
+        } else if (path === NAV_CONTACT) {
+            window.alert('No contact page yet... Coming soon sorry !');
+        } else {
+            console.error('Navigation path %s not managed by ion-blog...', path);
+        }
     }
 
 }

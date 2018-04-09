@@ -1,11 +1,9 @@
-import * as moment from 'moment';
-
 export class Article {
 
     id: number;
     title: string;
     description: string;
-    date: moment.Moment;
+    date: Date;
     author: string;
 
     constructor(id: number, title: string, description?: string, author: string = 'Greg') {
@@ -13,7 +11,7 @@ export class Article {
         this.title = title;
         this.description = description;
         this.author = author;
-        this.date = moment();
+        this.date = new Date();
     }
 
 }

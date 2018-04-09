@@ -2,8 +2,7 @@ import {AppComponent} from './app.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {ArticleService} from './article.service';
+import {BlogLibModule} from './blog-lib/blog-lib.module';
 
 
 @NgModule({
@@ -13,10 +12,7 @@ import {ArticleService} from './article.service';
     imports: [
         BrowserModule,
         FormsModule,
-        HttpClientModule
-    ],
-    providers: [
-        ArticleService
+        BlogLibModule
     ],
     bootstrap: [
         AppComponent

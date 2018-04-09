@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "title": "Article 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu rhoncus purus, id mattis urna. Sed turpis nisi, tempor et erat vel, volutpat suscipit lacus. Donec lectus tortor, posuere vel enim eget, pharetra laoreet quam. Phasellus quis posuere augue. Curabitur vitae scelerisque justo, elementum aliquet nisl. Ut enim turpis, imperdiet id volutpat at, pellentesque vel elit. Ut placerat finibus efficitur. Donec id molestie enim, sit amet malesuada odio.",
+    "author": "Greg",
+    "date": "20-02-2018"
+  },
+  {
+    "id": 1,
+    "title": "Article 2",
+    "description": "Nam id sodales metus. Suspendisse metus sem, fermentum et porttitor at, mattis id purus. Nunc tincidunt vitae nisi sit amet tristique. In maximus dui ac blandit pretium. Nam condimentum est id enim mollis, sit amet varius lectus tempor. Donec erat justo, dapibus vitae pharetra a, luctus sit amet erat. Etiam iaculis nisi risus, ac euismod mi facilisis nec. ",
+    "author": "Jérémy",
+    "date": "22-02-2018"
+  },
+  {
+    "id": 2,
+    "title": "Article 3",
+    "description": "Cras venenatis, tellus lacinia maximus iaculis, massa urna lobortis mauris, nec pharetra ex metus in nulla. Ut vitae dui eget velit maximus aliquet. Morbi convallis nibh ac felis eleifend faucibus. Aenean a vestibulum urna. Morbi tempus nulla eu erat pretium, auctor maximus augue venenatis. Praesent id velit commodo urna pellentesque facilisis sit amet a quam. Nunc eget mi convallis, sollicitudin orci ac, vehicula nisi. Nam eleifend tempus vulputate.",
+    "author": "Francisco",
+    "date": "25-02-2018"
+  },
+  {
+    "id": 3,
+    "title": "Article 4",
+    "description": "Vestibulum vel eros et turpis bibendum pretium. Ut id nibh sit amet purus malesuada sagittis in id odio. Sed cursus a turpis sit amet ultricies. Morbi sed erat nec nibh convallis porta efficitur id felis. Sed massa arcu, scelerisque iaculis eleifend nec, tristique vel ligula. Curabitur ut molestie justo. Sed vel dictum ex. Nunc congue ornare hendrerit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer porta quam vel nunc tempus, eget dapibus orci tincidunt.",
+    "author": "Jean",
+    "date": "28-02-2018"
+  }
+]
