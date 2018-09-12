@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
   "lib": {
@@ -13,3 +14,20 @@
     "zone.js"
   ]
 }
+=======
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "lib": {
+    "entryFile": "public_api.ts",
+    "umdModuleIds": {
+      "rxjs": "Rx"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "core-js",
+    "rxjs",
+    "zone.js"
+  ]
+}
+>>>>>>> 3abfddea41605e60aff9ffcab65d15856d860da8
